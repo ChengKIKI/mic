@@ -1,0 +1,102 @@
+<div class="mini-navbar main-iew">
+    <div class="ibox-content">
+        <div class="tabs-container">
+            <uib-tabset>
+                <uib-tab heading="重点项目" select="ctrl.isDisplay(1)"></uib-tab>
+                <uib-tab heading="简报" select="ctrl.isDisplay(2)"></uib-tab>
+            </uib-tabset>
+        </div>
+        <div class="ibox-content p-lg" ng-if="ctrl.detailShow == 1">
+            <div class="row text-right m-b">
+                <label class="col-lg-1 paddTop">项目编号</label>
+                <div class="col-lg-3">
+                    <input ng-model="ctrl.seachData.projectCode" maxlength="50" type="text"
+                           class="form-control" ng-keypress="($event.which===13)?ctrl.queryProjectWhere():0"/>
+                </div>
+                <label class="col-lg-1 paddTop">项目类型</label>
+                <div class="col-lg-3">
+                    <input ng-model="ctrl.seachData.projectType" maxlength="12" type="text"
+                           class="form-control" ng-keypress="($event.which===13)?ctrl.queryProjectWhere():0"/>
+                </div>
+                <label class="col-lg-1 paddTop">管理级别</label>
+                <div class="col-lg-3">
+                    <select class="form-control" ng-model="ctrl.seachData.manageLevel"
+                            ng-options="s.dictValue as s.dictName for s in ctrl.manageLevelData">
+                        <option value="" selected>-- 全选 --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row text-right ">
+                <label class="col-lg-1 paddTop">重点项目名称</label>
+                <div class="col-lg-3">
+                    <input ng-model="ctrl.seachData.majorProjectName" maxlength="50" type="text"
+                           class="form-control" ng-keypress="($event.which===13)?ctrl.queryProjectWhere():0"/>
+                </div>
+                <label class="col-lg-1 paddTop">建设类型</label>
+                <div class="col-lg-3">
+                    <select class="form-control" ng-model="ctrl.seachData.buildType"
+                            ng-options="s.dictValue as s.dictName for s in ctrl.buildTypeData">
+                        <option value="" selected>-- 全选 --</option>
+                    </select>
+                </div>
+                <label class="col-lg-1 paddTop">成本状态</label>
+                <div class="col-lg-3">
+                    <select class="form-control" ng-model="ctrl.seachData.costStart"
+                            ng-options="s.dictValue as s.dictName for s in ctrl.costStartData">
+                        <option value="" selected>-- 全选 --</option>
+                    </select>
+                </div>
+            </div>
+            <div ng-show="ctrl.showBus" class="row text-right ">
+                <label class="col-lg-1 paddTop">项目牵头单位</label>
+                <div class="col-lg-3">
+                    <input ng-model="ctrl.seachData.projectRelevanceUnit" maxlength="50" type="text"
+                           class="form-control" ng-keypress="($event.which===13)?ctrl.queryProjectWhere():0"/>
+                </div>
+                <label class="col-lg-1 paddTop">立项时间</label>
+                <div class="col-lg-3">
+                    <div class="input-group">
+                        <input id="startTime" type="datetime" date-time ng-blur="ctrl.seachDataChange()" class="form-control"
+                               ng-model="ctrl.seachData.startDate" view="date" auto-close="true" min-view="date"
+                               readonly="readonly" format="YYYY-MM-DD">
+                        <span class="input-group-addon" show-picker><i class="fa fa-calendar"></i></span>
+                        <span class="input-group-addon" style="border: none;">~</span>
+                        <input id="endTime" type="datetime" date-time ng-blur="ctrl.seachDataChange()" class="form-control"
+                               ng-model="ctrl.seachData.endDate" view="date" auto-close="true" min-view="date"
+                               readonly="readonly" format="YYYY-MM-DD">
+                        <span class="input-group-addon" show-picker><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col-lg-3 text-left">
+                    <button class="btn btn-white" ng-click="ctrl.selectRelevanceProject()" user-access="PM_09_01_FUN_01">新建</button>
+                </div>
+                <div class="col-lg-9 text-right">
+                    <a ng-click="ctrl.showBusiness()" style="float:right;margin-left: 10px;">
+                        <i ng-if="!ctrl.showBus" class="fa fa-angle-down" style="font-size: 30px"></i>
+                        <i ng-if="ctrl.showBus" class="fa fa-angle-up" style="font-size: 30px"></i>
+                    </a>
+                    <div uib-dropdown style="float:right;" auto-close="outsideClick">
+                        <button uib-dropdown-toggle type="button" class="btn btn-success" style="margin:0;" ng-click="ctrl.outsideClicks">列隐藏</button>
+                        <ul uib-dropdown-menu class="hideList" style="width:260px;right:0;left: inherit;">
+                            <li ng-repeat="item in ctrl.dtColumns" ng-if="item.mData"><label><input
+                                    ng-change="ctrl.hideColumn(item)" type="checkbox"
+                                    ng-model="item.show"/>{{item.sTitle}}</label></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-success" style="float:right;margin-right: 15px;" ng-click="ctrl.resetQuery()">重置</a>
+                    <a class="btn btn-success" style="float:right;" ng-click="ctrl.queryMajorProject()">查询</a>
+                </div>
+            </div>
+            <div class="ibox float-e-margins">
+                <div class="row" style="margin-top: 6px;min-height: 440px;margin-bottom: 10px;">
+                    <div class="col-lg-12">
+                        <table datatable="" width="100%" dt-options="ctrl.dtOptions" dt-columns="ctrl.dtColumns" dt-instance="ctrl.dtInstance" dt-disable-deep-watchers="true" class="table table-striped table-hover table-bordered ">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
