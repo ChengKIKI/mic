@@ -1,0 +1,31 @@
+{
+    "data":[
+        {
+            "index": 1,
+            "projectCode": "000000001",
+            "majorProjectName": "项目名称",
+            "projectType": "投资类项目",
+            "manageLevel": "公司级",
+            "projectRelevanceUnit": "集团",
+            "manageDepartment": "管理部门",
+            "buildType": "建设形式",
+            "createDate": "2020-05-10",
+            "costStart": "成本状态"
+        },
+        {
+            "index": 2,
+            "projectCode": "000000001",
+            "majorProjectName": "项目名称",
+            "projectType": "投资类项目",
+            "manageLevel": "公司级",
+            "projectRelevanceUnit": "集团",
+            "manageDepartment": "管理部门",
+            "buildType": "建设形式",
+            "createDate": "2020-05-10",
+            "costStart": "成本状态"
+        }
+    ],
+    "pageIndex": 1,
+    "pageSize": 10,
+    "pagetotal": 300
+}
