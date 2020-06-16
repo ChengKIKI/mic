@@ -1,5 +1,5 @@
 /**
- * Created by fanqifeng on 16-12-1.
+ * Created by on 16-12-1.
  */
 'use strict';
 
@@ -10,4 +10,5 @@ export function majorProjectModule(Angular) {
     const majorProjectModule = Angular.module('majorProject', []);
     majorControllerFunc(majorProjectModule);
     majorServiceFunc(majorProjectModule);
+    // return majorProjectModule;
 }

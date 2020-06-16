@@ -1,4 +1,4 @@
-
+var path = require('path');
 const helpers = require('./helpers');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 // const webpackMergeDll = webpackMerge.strategy({plugins: 'replace'});
@@ -34,12 +34,17 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
 module.exports = function (options) {
   return webpackMerge(commonConfig({env: ENV}), {
     entry: ["babel-polyfill", "./src/app.module.js"],
-    devtool: 'cheap-module-source-map',
+    // entry: "./src/app.module.js",
+    devtool: 'inline-source-map',
     output: {
+        
       path: helpers.root('dist'),
+    //   path: path.resolve(__dirname, 'dist'),
       filename: '[name].bundle.js',
+      publicPath: '/',
       sourceMapFilename: '[file].map',
-      chunkFilename: '[id].chunk.js',
+      chunkFilename: '[name].chunk.js',
+      
 
     //   library: 'ac_[name]',
     //   libraryTarget: 'var',

@@ -1,2 +1,5 @@
 
 *.json
+*.map
+node_modules/
+main/dist/

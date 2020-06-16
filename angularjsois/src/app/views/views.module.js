@@ -1,5 +1,5 @@
 /**
- * Created by fanqifeng on 17-11-2.
+ * Created by on 17-11-2.
  */
 
 import angular from 'angular';

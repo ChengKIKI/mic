@@ -61,7 +61,6 @@ class majorProjectCtrl {
 
         //加载重点项目表格信息
         function queryMajorProjectTable() {
-            console.log(DTOptionsBuilder);
             vm.dtOptions = DTOptionsBuilder.newOptions()
                 .withOption('ajax', {
                     url: '../../../jsonData/majorData.json',
@@ -76,7 +75,6 @@ class majorProjectCtrl {
                     //     return d;
                     // },
                     dataSrc: function (json) {
-                        console.log(json);
                         // if (json.successful) {
                             vm.majorProjectTable = json.data;
                             return vm.majorProjectTable;

@@ -1,27 +1,15 @@
 
-// import './public-path'
+import './public-path'
 require("babel-polyfill");
 require('datatables');
 import angular from 'angular';
 require('angular-datatables');
-// import 'js/datatables.min.js';
-// import angular from 'angular';
 require('angular-ui-bootstrap');
 require('oclazyload');
-// import 'js/angular-datatables.min.js';
-// require('datatables')
-// require('angular-datatables');
-// import 'js/dataTables.fixedHeader.min.js';
-// import 'js/angular-datatables.fixedheader.min.js';
-// import 'js/dataTables.treeGrid.js';
-// import 'js/angular-datatables.treeGrid.js';
 import 'bootstrap';
-
 
 import {config} from './app/config/config.module';
 import {views} from "./app/views/views.module";
-// import 'styles/app.scss';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'styles/style.css';
 
 export function main() {

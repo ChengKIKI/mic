@@ -1,6 +1,3 @@
-/**
- * Created by fanqifeng on 17-1-21.
- */
 
 /*routerHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
@@ -142,7 +139,6 @@ export class RouterHelperProvider{
         ///////////////
 
         function configureStates(states, otherwisePath) {
-            console.log(states);
             states.forEach((state)=>{
                 state.config.resolve =
                     angular.extend(state.config.resolve || {}, config.resolveAlways);
@@ -180,11 +176,13 @@ export class RouterHelperProvider{
 
 
         function init() {
-            if ($location.path() === '/' || !$location.path()) {
-                // $location.path('login');
-                $location.path('majorProject');
-                // $state.go('majorProject');
-            }
+            $location.path('majorProject');
+            // if ($location.path() === '/' || !$location.path()) {
+            //     console.log('majorProject')
+            //     // $location.path('login');
+            //     $location.path('majorProject');
+            //     // $state.go('majorProject');
+            // }
             handleRoutingErrors();
             updateDocTitle();
         }

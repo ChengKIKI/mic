@@ -1,6 +1,4 @@
-/**
- * Created by fanqifeng on 17-1-22.
- */
+
 
 'use strict';
 

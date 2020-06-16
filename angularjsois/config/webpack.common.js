@@ -103,12 +103,13 @@ module.exports = function (options) {
                 metadata: METADATA,
                 inject: 'body'
             }),
-            new ScriptExtHtmlWebpackPlugin({
-                sync: /polyfills|vendor/,
-                defaultAttribute: 'async',
-                preload: [/polyfills|vendor|main/],
-                prefetch: [/chunk/]
-            }),
+            // new ScriptExtHtmlWebpackPlugin({
+            //     sync: /polyfills|vendor/,
+            //     // defaultAttribute: 'async',
+            //     defaultAttribute: 'sync',
+            //     preload: [/polyfills|vendor|main/],
+            //     prefetch: [/chunk/]
+            // }),
             new HtmlElementsPlugin({
                 headTags: require('./head-config.common')
             }),

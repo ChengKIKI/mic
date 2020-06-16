@@ -28,6 +28,11 @@ function majorProjectStates($stateProvider) {
                         let template = require('./majorProject.html');
                         defer.resolve(template);
                     });
+                    // import('./majorProject.html').then(myModule => {
+                    //     let template = myModule;
+                    //     console.log(template)
+                    //     defer.resolve(template);
+                    // })
                     return defer.promise;
                 }],
                 resolve: {
@@ -35,12 +40,19 @@ function majorProjectStates($stateProvider) {
                         let defer = $q.defer();
                         require.ensure([], () => {
                             let module = require('./majorProject.module').majorProjectModule(angular);
-                            console.log(module)
                             $ocLazyLoad.load({
                                 name: 'majorProject'
                             });
                             defer.resolve(module);
                         });
+                        // import('./majorProject.module').then(myModule => {
+                        //     let module = myModule.majorProjectModule(angular);
+                        //     console.log(module);
+                        //     $ocLazyLoad.load({
+                        //         name: 'majorProject'
+                        //     });
+                        //     defer.resolve(module);
+                        // })
                         return defer.promise;
                     }],
                 }

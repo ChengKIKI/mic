@@ -1,6 +1,3 @@
-/**
- * Created by fanqifeng on 17-1-21.
- */
 
 const appTitle = 'webpack angular';
 
@@ -40,6 +37,7 @@ export function constructorFn(configFn) {
     /**
      * args.push(factoryFunction)类似于['a',function(a){}]
      * */
-    console.log(factoryFunction);
-    return args.push(factoryFunction) && args;  //return args;
+    let arges = args.push(factoryFunction) && args;
+    return arges;  //return args;
+    
 }

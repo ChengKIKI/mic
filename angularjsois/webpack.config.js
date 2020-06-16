@@ -1,7 +1,6 @@
 /**
  * Look in ./config folder for webpack.dev.js
  */
-console.log('44444444444444')
 switch (process.env.NODE_ENV) {
   case 'prod':
   case 'production':
